@@ -1,0 +1,17 @@
+<h1>Every Posts are on Below</h1>
+<% if @posts.present?%>
+        <%@posts.each_with_index do |post,index|%>
+            <%= link_to post_path(post) do %>
+                <%=index+1%> / <%=post.title%> / Current User
+            <%end%>
+            <%= link_to  "Update", edit_post_path(post) %>
+            <%= link_to  "Delete", post_path(post), method: :delete %>                    
+            <br>
+        <%end%>
+<%else%>
+    <h2>There is no Post</h2>
+<%end%>
+<br>
+<br>
+<%= link_to  "New", new_post_path %>
+ 
